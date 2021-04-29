@@ -6,5 +6,6 @@ We now live with the technology in every part of the life. Sometimes with advant
 ## Project's Background
 
 1- This project will be created with React tools.
+2- The idea behind project is adapting to the fast-growing Face Recognition technology.
 
 ----- This part will be updated through the versions ----

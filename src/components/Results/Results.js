@@ -1,11 +1,54 @@
-import React, { useState} from 'react'
-import axios from "axios";
+import React, { Component } from 'react'
 import "./Results.css"
 
-export default function Results(props) {
-    const {result, setresult} = useState(props.url)
+export default class Results extends Component {
 
-    const options = {
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+            infos: []
+        }
+    }
+    
+
+    componentDidMount(){
+        this.setState({infos: this.props.infos})
+    }
+    // componentDidUpdate(){
+    //     console.log(this.state.infos)
+    // }
+
+    render() {
+        console.log(this.state.infos)
+        return (
+            
+            <div id="container">
+                <img src={this.props.url} alt="personalImage" id="uploadIMG"></img>
+                <div id="resultDiv">
+                    {this.state.infos.map((person,index)=>{
+                        return (
+                            <div key={index}>
+                                <p>You could be "{person.faceAttributes.age}" but to be honest you look like way younger than that :)</p>
+                                <p>{person.faceAttributes.smile !== 0 ? "I see some smile on your face. That's great" : ""}</p>
+                                <p></p>
+
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
+            
+        )
+    }
+}
+
+
+
+
+
+
+/* const options = {
         method: 'POST',
         url: 'https://face-detection6.p.rapidapi.com/img/face-age-gender',
         headers: {
@@ -22,18 +65,5 @@ export default function Results(props) {
     }).catch(function (error) {
         console.error(error);
     });
-    
-    // https://inferdo.com/img/face-3.jpg
 
-
-    return (
-        <div>
-            <div id="resultDiv">
-                <img src={props.url}></img>
-                
-            </div>
-            
-
-        </div>
-    )
-}
+*/

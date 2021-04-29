@@ -1,4 +1,14 @@
 
-img{
+#uploadIMG{
     width: 250px;
+    margin: 5%
 }
+
+#container{
+    display: flex;
+}
+
+#resultDiv{
+    margin: 5% 15%;
+}
+
