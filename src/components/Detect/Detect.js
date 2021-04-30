@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Results from "../Results/Results"
 import axios from "axios";
-import "./Form.css"
+import "./Detect.css"
 
 
 export default class Form extends Component {
@@ -38,7 +38,7 @@ export default class Form extends Component {
   seeResults = () => {
     const options = {
       method: 'POST',
-      url: 'https://microsoft-face1.p.rapidapi.com/detect',
+      url: 'https://eastus.api.cognitive.microsoft.com/face/v1.0/detect?',
       params: {
         returnFaceId: 'true',
         recognitionModel: 'recognition_01',
@@ -47,8 +47,7 @@ export default class Form extends Component {
       },
       headers: {
         'content-type': 'application/json',
-        'x-rapidapi-key': 'f7b90963eamshf47dc9bcd5e7ff5p1b0d21jsna5168b2db105',
-        'x-rapidapi-host': 'microsoft-face1.p.rapidapi.com'
+        'Ocp-Apim-Subscription-Key': '398a9c1ab8b046169f5397e6e99d35e5',
       },
       data: {url: this.state.url}
   };

@@ -4,17 +4,6 @@
     padding: 0;
 }
 
-nav{
-    height: 92px;
-    background-color: black;
-    color: white;
-}
-
-#loginBtn{
-    float: right;
-    margin: 3%;
-    padding: 0.5% 1.25%;
-}
 
 ul{
     display: inline-flex;
@@ -23,5 +12,11 @@ ul{
 }
 
 ul li{
+    padding: 10px;
     
+}
+
+a {
+    color: white;
+    text-decoration: none;
 }

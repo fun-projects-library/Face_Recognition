@@ -1,3 +1,24 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+#loginBtn{
+  float: right;
+  margin: 3%;
+  padding: 0.5% 1.25%;
+}
+
+nav{
+  height: 92px;
+  background-color: black;
+  color: white;
+}
+
+
+
+
+
 /* .App {
   text-align: center;
 }
