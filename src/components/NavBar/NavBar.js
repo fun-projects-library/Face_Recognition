@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Link, Route} from "react-router-dom"
+import {Redirect, NavLink} from "react-router-dom"
 import "./NavBar.css"
 
 export default class NavBar extends Component {
@@ -20,20 +20,19 @@ export default class NavBar extends Component {
     render() {
         return (
             <div>
-
                 <nav>
+
                     {this.state.loggedIn ? 
                     <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/detectFace">Detect Face</Link></li>
-                        {this.state.loggedIn ? 
-                        <Route path="/" /> : ""    
-                    }
+                        <li><NavLink to="/" activeClassName="activeNavLink" exact strict>Home</NavLink></li>
+                        <li><NavLink to="/detectFace" activeClassName="activeNavLink">Detect Face</NavLink></li>
                         
-                    </ul> : ""}
+                        
+                    </ul> : <Redirect to="/"/>}
+
                     <button type="button" id="loginBtn" onClick={this.LoginFunc}>{this.state.loggedIn ? "Logout" : "Login"}</button>
-                </nav>
-                  
+
+                </nav>   
             </div>
         )
     }

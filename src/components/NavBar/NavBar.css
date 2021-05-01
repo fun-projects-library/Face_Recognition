@@ -12,11 +12,16 @@ ul{
 }
 
 ul li{
-    padding: 10px;
     
+    padding: 10px;
 }
 
 a {
+    
     color: white;
     text-decoration: none;
+}
+
+.activeNavLink{
+    color:yellow
 }
