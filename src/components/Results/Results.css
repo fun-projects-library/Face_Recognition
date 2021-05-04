@@ -1,6 +1,7 @@
 
 #uploadIMG{
     width: 250px;
+    height: 300px;
     margin: 5%
 }
 
@@ -9,6 +10,9 @@
 }
 
 #resultDiv{
-    margin: 5% 15%;
+    margin: 5% 5%;
 }
 
+#emotionsUL{
+    margin-left: 0;
+}
