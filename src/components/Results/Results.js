@@ -29,9 +29,10 @@ export default class Results extends Component {
                     {this.state.infos.map((person,index)=>{
                         return (
                             <div key={index}>
-                                <p>You could be "{person.faceAttributes.age}" but to be honest you look like way younger than that :)</p>
+                                <p>You could be "{person.faceAttributes.age - 4}" but to be honest you look like way younger than that :)</p>
                                 <p>{person.faceAttributes.smile !== 0 ? "I see some smile on your face. That's great" : ""}</p>
                                 <p></p>
+                                <br />
 
                             </div>
                         )

@@ -22,6 +22,7 @@ function App() {
             renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/detectFace"> <Detect /> </Route>
+          <Route path="/error"> <Error /> </Route>
           <Route path="/" component={Main} />
           <Route component={Error} />
         </Switch>

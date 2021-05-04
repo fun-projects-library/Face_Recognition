@@ -6,16 +6,36 @@ export default class NavBar extends Component {
     constructor(props){
         super(props);
         this.state = {
-            loggedIn: false
+            loggedIn: false,
+            password: "",
+            warning: false
         }
         this.LoginFunc = this.LoginFunc.bind(this)
     }
     
     
     LoginFunc (){
-        this.setState({loggedIn: !this.state.loggedIn})
+        if(this.state.password === "adana" && this.state.loggedIn === false){
+            this.setState({
+                loggedIn: true,
+                password: ""
+            })
+        } else if(this.state.loggedIn === true){
+            this.setState({
+                loggedIn: false
+            })
+        }
     }
 
+    handleChange=(e)=>{
+        this.setState({
+            password: e.target.value
+        })
+    }
+
+    handleKeyboard = (e) => {
+        
+    }
 
     render() {
         return (
@@ -26,11 +46,15 @@ export default class NavBar extends Component {
                     <ul>
                         <li><NavLink to="/" activeClassName="activeNavLink" exact strict>Home</NavLink></li>
                         <li><NavLink to="/detectFace" activeClassName="activeNavLink">Detect Face</NavLink></li>
+                        <li><NavLink to="/error" activeClassName="activeNavLink">Error</NavLink></li>
                         
                         
                     </ul> : <Redirect to="/"/>}
-
-                    <button type="button" id="loginBtn" onClick={this.LoginFunc}>{this.state.loggedIn ? "Logout" : "Login"}</button>
+                    <div id="loginDiv">
+                        <input type="password" placeholder="Enter your password!" id="loginInput" onChange={this.handleChange} value={this.state.password} onKeyUp={(e)=> {return e.key === "Enter" && this.state.loggedIn === false ? this.LoginFunc() : ""}}></input>    
+                        <button type="button" id="loginBtn" onClick={this.LoginFunc}>{this.state.loggedIn ? "Logout" : "Login"}</button>
+                    </div>
+                    
 
                 </nav>   
             </div>
