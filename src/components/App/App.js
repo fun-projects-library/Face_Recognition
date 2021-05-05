@@ -3,7 +3,8 @@ import './App.css';
 import Detect from "../Detect/Detect"
 import NavBar from "../NavBar/NavBar"
 import Error from "../Error/Error"
-import Main from "../Main/Main"
+import Main from "../Main/Main";
+import Verify from "../Verify/Verify"
 import {
   BrowserRouter as Router,
   Switch,
@@ -23,7 +24,8 @@ function App() {
         <Switch>
           <Route path="/detectFace"> <Detect /> </Route>
           <Route path="/error"> <Error /> </Route>
-          <Route path="/" component={Main} />
+          <Route path="/" exact strict component={Main} />
+          <Route path="/verify"> <Verify /> </Route>
           <Route component={Error} />
         </Switch>
       </Router>

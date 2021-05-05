@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Results from "../Results/Results"
+import Results from "./Results"
 import axios from "axios";
 import "./Detect.css"
 
@@ -74,8 +74,10 @@ export default class Form extends Component {
             <button type="button" id="resultBtn" onClick={this.seeResults}>See results!</button>
           </form> : ""
           }
-              
-              {this.state.submitted ? <Results url={this.state.url} infos={this.state.infos}/> : ""}
+
+          {this.state.submitted ? <button onClick={()=> {this.setState({submitted: false})}} id="tryButton">Try Another!</button> : ""}
+
+            {this.state.submitted ? <Results url={this.state.url} infos={this.state.infos}/> : ""}
           </div>
       )
   }

@@ -33,9 +33,6 @@ export default class NavBar extends Component {
         })
     }
 
-    handleKeyboard = (e) => {
-        
-    }
 
     render() {
         return (
@@ -46,6 +43,7 @@ export default class NavBar extends Component {
                     <ul>
                         <li><NavLink to="/" activeClassName="activeNavLink" exact strict>Home</NavLink></li>
                         <li><NavLink to="/detectFace" activeClassName="activeNavLink">Detect Face</NavLink></li>
+                        <li><NavLink to="/verify" activeClassName="activeNavLink">Verify</NavLink></li>
                         <li><NavLink to="/error" activeClassName="activeNavLink">Error</NavLink></li>
                         
                         
