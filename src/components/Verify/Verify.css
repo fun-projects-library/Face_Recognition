@@ -1,0 +1,14 @@
+
+
+#verifyDiv{
+    margin: 5%;
+}
+
+#verifyDiv button{
+    margin:1% 3%;
+    padding: 0.5rem 1rem;
+}
+
+button:hover{
+    cursor: pointer;
+}

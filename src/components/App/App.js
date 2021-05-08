@@ -16,7 +16,7 @@ import {
 function App() {
   
   return (
-    <React.StrictMode>
+    <>
       <Router>
         <NavBar />
         {/* A <Switch> looks through its children <Route>s and
@@ -29,7 +29,7 @@ function App() {
           <Route component={Error} />
         </Switch>
       </Router>
-    </React.StrictMode>
+    </>
   );
 }
 
