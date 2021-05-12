@@ -1,14 +1,34 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import "./Verify.css"
 import {VerifyContext} from "../../context/verifyContext";
 import axios from "axios";
-import VerifyResults from "./VerifyResults"
+import VerifyResults from "./VerifyResults";
+
+
+const initialState = {submitButton: false, faceId1: "", faceId2:"", faceId1URL:"", faceId2URL:""}
+
+const reducer = (state, action) => {
+    switch (action.type) {
+        case "faceId1Button": return {...state, faceId1: action.payload};
+        case "faceId1URL": return {...state, faceId1URL: action.payload};
+
+        case "faceId2Button": return {...state, faceId2: action.payload};
+        case "faceId2URL": return {...state, faceId2URL: action.payload};
+
+        case "submitButton": return {...state, submitButton: action.payload};
+            
+    
+        default:
+            return state
+    }
+}
 
 export default function Verify(e) {
 
-    const [state, setState] = useState({submitButton: false}) 
+    // const [state, setState] = useState({submitButton: false});
+    const [state, dispatch] = useReducer(reducer, initialState) 
 
-    const verifyFunc = (e) => {
+    const detectFunc = (e) => {
         // console.log(e.target.id)
         const options = {
             method: 'POST',
@@ -25,16 +45,24 @@ export default function Verify(e) {
           
         axios.request(options)
         .then(response => {
-          setState({...state, [e.target.id === "faceId1Button" ? "faceId1" : "faceId2"]: response.data[0].faceId});
-          
+          // dispatch({...state, [e.target.id === "faceId1Button" ? "faceId1" : "faceId2"]: response.data[0].faceId});
+          dispatch({type: e.target.id, payload: response.data[0].faceId})
+        })
+        .then(()=>{
+            if(e.target.id === "faceId2Button"){
+                dispatch({type: "submitButton", payload: true})
+            }
         })
         .catch(function (error) {
             console.error(error);
         });
+        
 
     }
+
     const handleInput = (e) => {
-        setState({...state, [e.target.id]: e.target.value})
+        
+        dispatch({type: e.target.id, payload: e.target.value})
     }
     // console.log(state.faceId1 ? state.faceId1[0].faceId : "sss");
     
@@ -43,12 +71,33 @@ export default function Verify(e) {
     return (
         <VerifyContext.Provider value={{state}}>
             <div id="verifyDiv">
-                <input type="text" onChange={handleInput} id="faceId1URL"/>
-                <button onClick={verifyFunc} id="faceId1Button">Upload</button>
-                <br />
-                <input type="text" id="faceId2URL" onChange={handleInput}/>
-                <button onClick={verifyFunc} id="faceId2Button">Upload</button>
-                {state.submitButton ? <VerifyResults /> : ""}
+                <div id="pictureOne" className="pictureClass">
+                    <div className="imageDiv">
+                        <img src={state.faceId1URL} alt="pictureOne" className="uploadImages"></img>
+                    </div>
+                    
+                    
+                    <input type="text" onChange={handleInput} id="faceId1URL" value={state.faceId1URL}/>
+                    <button onClick={detectFunc} id="faceId1Button" type="button" className="uploadButtons">Upload</button>
+                </div>
+                
+                <div>
+                    {state.submitButton ? <VerifyResults /> : ""}
+                </div>
+                
+
+                <div id="pictureTwo" className="pictureClass">
+                    <div className="imageDiv">
+                        <img src={state.faceId2URL} alt="pictureOne" className="uploadImages"></img>
+                    </div>
+                    
+                    
+                    <input type="text" id="faceId2URL" onChange={handleInput} value={state.faceId2URL}/>
+                    <button onClick={detectFunc} id="faceId2Button" type="button" className="uploadButtons">Upload</button>
+                </div>
+                
+                
+                
             </div>
             
         </VerifyContext.Provider>

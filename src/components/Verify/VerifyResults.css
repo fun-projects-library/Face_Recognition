@@ -1,0 +1,22 @@
+
+#verifyResultsDiv{
+    text-align: center;
+}
+
+#verifyInput{
+    outline: none;
+    border: none;
+    background-color: coral;
+    font-weight: bold;
+    text-align: center;
+    margin: 5% 0%;
+    font-size: 28px;
+    padding: 5%;
+}
+
+#submitButton{
+    color: white;
+    background-color: red;
+    padding: 4% 7%;
+    border-radius: 1rem;
+}
