@@ -19,3 +19,4 @@ We now live with the technology in every part of the life. Sometimes with advant
 
 - Warning for wrong password
 - Warning for fetch errors
+- Will add Photo ID login

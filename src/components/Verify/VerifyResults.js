@@ -3,6 +3,7 @@ import {VerifyContext} from "../../context/verifyContext"
 import axios from "axios"
 import "./VerifyResults.css"
 
+
 const initialState = {
     isIdentical: "",
     confidence: "",
@@ -56,15 +57,15 @@ export default function VerifyResults() {
     }
 
 
-    console.log(verifyState)
+    console.log(state)
     return (
         <div id="verifyResultsDiv">
             <button onClick={verifyFunc} id="submitButton">Submit</button>
             {verifyState.showResult ? 
             <div>
-                <input type="text" id="verifyInput" defaultValue={verifyState.isIdentical ? "It s you!!!" : "Opps, it s a different person"}></input>
+                <input type="text" id="verifyInput" value={verifyState.isIdentical ? "You find the same person!!!" : "Opps, it s a different one."} readOnly></input>
                 <br />
-                <span>The confidence rate: {verifyState.confidence}</span>
+                <span>The accuracy rate: {verifyState.confidence}</span>
             </div> : ""
         }
         </div>

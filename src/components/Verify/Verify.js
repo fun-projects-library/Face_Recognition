@@ -3,6 +3,8 @@ import "./Verify.css"
 import {VerifyContext} from "../../context/verifyContext";
 import axios from "axios";
 import VerifyResults from "./VerifyResults";
+import myImage from "./image.jpg"
+
 
 
 const initialState = {submitButton: false, faceId1: "", faceId2:"", faceId1URL:"", faceId2URL:""}
@@ -73,7 +75,7 @@ export default function Verify(e) {
             <div id="verifyDiv">
                 <div id="pictureOne" className="pictureClass">
                     <div className="imageDiv">
-                        <img src={state.faceId1URL} alt="pictureOne" className="uploadImages"></img>
+                        <img src={state.faceId1URL ? state.faceId1URL : myImage} alt="pictureOne" className="uploadImages"></img>
                     </div>
                     
                     
@@ -88,7 +90,7 @@ export default function Verify(e) {
 
                 <div id="pictureTwo" className="pictureClass">
                     <div className="imageDiv">
-                        <img src={state.faceId2URL} alt="pictureOne" className="uploadImages"></img>
+                        <img src={state.faceId2URL ? state.faceId2URL : myImage} alt="pictureOne" className="uploadImages"></img>
                     </div>
                     
                     

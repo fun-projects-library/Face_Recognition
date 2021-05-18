@@ -10,8 +10,10 @@
     font-weight: bold;
     text-align: center;
     margin: 5% 0%;
-    font-size: 28px;
+    font-size: 18px;
     padding: 5%;
+    width: 250px;
+    border-radius: 0.5rem;
 }
 
 #submitButton{
