@@ -7,17 +7,20 @@ import myImage from "./image.jpg"
 
 
 
-const initialState = {submitButton: false, faceId1: "", faceId2:"", faceId1URL:"", faceId2URL:""}
+const initialState = {submitButton: false, faceId1: "", faceId2:"", faceId1URL:"", faceId2URL:"", check1: true, check2: true, showComponent1: false, showComponent2: false}
 
 const reducer = (state, action) => {
+    
     switch (action.type) {
-        case "faceId1Button": return {...state, faceId1: action.payload};
+        case "faceId1Button": return {...state, faceId1: action.payload.response, check1:action.payload.checks, showComponent1: action.payload.show};
         case "faceId1URL": return {...state, faceId1URL: action.payload};
 
-        case "faceId2Button": return {...state, faceId2: action.payload};
+        case "faceId2Button": return {...state, faceId2: action.payload.response, check2: action.payload.checks, showComponent2: action.payload.show};
         case "faceId2URL": return {...state, faceId2URL: action.payload};
 
-        case "submitButton": return {...state, submitButton: action.payload};
+        case "checks": return {...state, check1: action.payload, check2: action.payload};
+
+        
             
     
         default:
@@ -47,12 +50,12 @@ export default function Verify(e) {
           
         axios.request(options)
         .then(response => {
-          // dispatch({...state, [e.target.id === "faceId1Button" ? "faceId1" : "faceId2"]: response.data[0].faceId});
-          dispatch({type: e.target.id, payload: response.data[0].faceId})
+          
+          dispatch({type: e.target.id, payload: {response: response.data[0].faceId, checks: false, show:true}})
         })
         .then(()=>{
             if(e.target.id === "faceId2Button"){
-                dispatch({type: "submitButton", payload: true})
+                dispatch({type: "submitButton", payload: true});
             }
         })
         .catch(function (error) {
@@ -63,15 +66,18 @@ export default function Verify(e) {
     }
 
     const handleInput = (e) => {
-        
         dispatch({type: e.target.id, payload: e.target.value})
     }
-    // console.log(state.faceId1 ? state.faceId1[0].faceId : "sss");
+
+    const unCheck = () => {
+        dispatch({type: "checks", payload: true});
+        
+    }
     
 
     console.log(state)
     return (
-        <VerifyContext.Provider value={{state}}>
+        <VerifyContext.Provider value={{state, unCheck}}>
             <div id="verifyDiv">
                 <div id="pictureOne" className="pictureClass">
                     <div className="imageDiv">
@@ -80,11 +86,12 @@ export default function Verify(e) {
                     
                     
                     <input type="text" onChange={handleInput} id="faceId1URL" value={state.faceId1URL}/>
-                    <button onClick={detectFunc} id="faceId1Button" type="button" className="uploadButtons">Upload</button>
+                    <button onClick={detectFunc} id="faceId1Button" type="button" className="uploadButtons" disabled={state.faceId1URL ? false : true}>Upload</button>
+                    <span className="checks" id="check1" hidden={state.check1}><i className="fas fa-check"></i></span>
                 </div>
                 
                 <div>
-                    {state.submitButton ? <VerifyResults /> : ""}
+                    {state.showComponent1 && state.showComponent2 ? <VerifyResults /> : ""}
                 </div>
                 
 
@@ -95,7 +102,8 @@ export default function Verify(e) {
                     
                     
                     <input type="text" id="faceId2URL" onChange={handleInput} value={state.faceId2URL}/>
-                    <button onClick={detectFunc} id="faceId2Button" type="button" className="uploadButtons">Upload</button>
+                    <button onClick={detectFunc} id="faceId2Button" type="button" className="uploadButtons" disabled={state.faceId2URL ? false : true}>Upload</button>
+                    <span className="checks" id="check2" hidden={state.check2}><i className="fas fa-check"></i></span>
                 </div>
                 
                 

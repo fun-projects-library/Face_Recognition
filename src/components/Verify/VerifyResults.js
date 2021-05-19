@@ -22,7 +22,7 @@ const reducer = (verifyState, action) => {
 
 
 export default function VerifyResults() {
-    const {state} = useContext(VerifyContext);
+    const {state, unCheck} = useContext(VerifyContext);
 
     const [verifyState, dispatch] = useReducer(reducer, initialState)
 
@@ -49,7 +49,8 @@ export default function VerifyResults() {
             dispatch({type: "seeResult", payload: response.data})
         })
         .then(()=>{
-            dispatch({type:"showResult", payload: true})
+            dispatch({type:"showResult", payload: true});
+            unCheck()
         })
         .catch(function (error) {
             console.error(error);
