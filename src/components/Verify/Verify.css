@@ -1,0 +1,48 @@
+
+
+#verifyDiv{
+    margin: 5%;
+    display: inline-flex;
+}
+
+
+button:hover{
+    cursor: pointer;
+}
+
+.pictureClass{
+    width: 350px;
+    padding: 3%;
+    border: 2px solid black;
+    margin: 0% 5%;
+    text-align: center;
+}
+
+.uploadButtons{
+    margin-top: 5%;
+    background-color: rgb(42, 42, 243);
+    border-radius: 1rem;
+    color: white;
+    padding: 0.5rem 1rem;
+}
+
+.uploadImages{
+    width: 100px;
+    margin: 0 auto;
+    
+}
+
+.imageDiv{
+    width: 150px;
+    height: 150px;
+    
+    margin: 0 auto;
+}
+
+input{
+    width: 200px;
+}
+
+.checks{
+    margin-left: 2%;
+}
