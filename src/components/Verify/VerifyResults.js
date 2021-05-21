@@ -1,7 +1,8 @@
 import React, {useContext, useReducer} from 'react';
 import {VerifyContext} from "../../context/verifyContext"
-import axios from "axios"
-import "./VerifyResults.css"
+import axios from "axios";
+import "./VerifyResults.css";
+import ocpApimSubscriptionKey from "../../context/keys"
 
 
 const initialState = {
@@ -33,7 +34,7 @@ export default function VerifyResults() {
             params: {},
             headers: {
               'content-type': 'application/json',
-              'Ocp-Apim-Subscription-Key': '398a9c1ab8b046169f5397e6e99d35e5',
+              'Ocp-Apim-Subscription-Key': ocpApimSubscriptionKey,
             },
             data: {
                 faceId1: state.faceId1,

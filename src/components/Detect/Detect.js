@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import Results from "./Results"
 import axios from "axios";
-import "./Detect.css"
+import "./Detect.css";
+import ocpApimSubscriptionKey from "../../context/keys"
 
 
 export default class Form extends Component {
@@ -47,7 +48,7 @@ export default class Form extends Component {
       },
       headers: {
         'content-type': 'application/json',
-        'Ocp-Apim-Subscription-Key': '398a9c1ab8b046169f5397e6e99d35e5',
+        'Ocp-Apim-Subscription-Key': ocpApimSubscriptionKey,
       },
       data: {url: this.state.url}
   };

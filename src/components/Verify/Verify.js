@@ -3,7 +3,8 @@ import "./Verify.css"
 import {VerifyContext} from "../../context/verifyContext";
 import axios from "axios";
 import VerifyResults from "./VerifyResults";
-import myImage from "./image.jpg"
+import myImage from "./image.jpg";
+import ocpApimSubscriptionKey from "../../context/keys"
 
 
 
@@ -43,7 +44,7 @@ export default function Verify(e) {
             },
             headers: {
               'content-type': 'application/json',
-              'Ocp-Apim-Subscription-Key': '398a9c1ab8b046169f5397e6e99d35e5',
+              'Ocp-Apim-Subscription-Key': ocpApimSubscriptionKey,
             },
             data: {url: e.target.id === "faceId1Button" ? state.faceId1URL : state.faceId2URL}
         };
