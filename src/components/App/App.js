@@ -6,7 +6,6 @@ import Error from "../Error/Error"
 import Main from "../Main/Main";
 import Verify from "../Verify/Verify"
 import {
-  HashRouter,
   Switch,
   Route
 } from "react-router-dom";
@@ -17,7 +16,7 @@ function App() {
   
   return (
     <>
-      <HashRouter>
+      
         <NavBar />
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
@@ -28,7 +27,7 @@ function App() {
           <Route path="/verify"> <Verify /> </Route>
           <Route component={Error} />
         </Switch>
-      </HashRouter>
+      
     </>
   );
 }
