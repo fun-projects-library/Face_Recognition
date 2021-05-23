@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/Face_Recognition/static/css/main.5f6a2662.chunk.css",
-    "main.js": "/Face_Recognition/static/js/main.6b45623a.chunk.js",
-    "main.js.map": "/Face_Recognition/static/js/main.6b45623a.chunk.js.map",
+    "main.js": "/Face_Recognition/static/js/main.c3ef777b.chunk.js",
+    "main.js.map": "/Face_Recognition/static/js/main.c3ef777b.chunk.js.map",
     "runtime-main.js": "/Face_Recognition/static/js/runtime-main.aa13536c.js",
     "runtime-main.js.map": "/Face_Recognition/static/js/runtime-main.aa13536c.js.map",
-    "static/js/2.3c611381.chunk.js": "/Face_Recognition/static/js/2.3c611381.chunk.js",
-    "static/js/2.3c611381.chunk.js.map": "/Face_Recognition/static/js/2.3c611381.chunk.js.map",
+    "static/js/2.5844aa7b.chunk.js": "/Face_Recognition/static/js/2.5844aa7b.chunk.js",
+    "static/js/2.5844aa7b.chunk.js.map": "/Face_Recognition/static/js/2.5844aa7b.chunk.js.map",
     "static/js/3.beb2e564.chunk.js": "/Face_Recognition/static/js/3.beb2e564.chunk.js",
     "static/js/3.beb2e564.chunk.js.map": "/Face_Recognition/static/js/3.beb2e564.chunk.js.map",
     "index.html": "/Face_Recognition/index.html",
     "static/css/main.5f6a2662.chunk.css.map": "/Face_Recognition/static/css/main.5f6a2662.chunk.css.map",
-    "static/js/2.3c611381.chunk.js.LICENSE.txt": "/Face_Recognition/static/js/2.3c611381.chunk.js.LICENSE.txt",
+    "static/js/2.5844aa7b.chunk.js.LICENSE.txt": "/Face_Recognition/static/js/2.5844aa7b.chunk.js.LICENSE.txt",
     "static/media/image.12928440.jpg": "/Face_Recognition/static/media/image.12928440.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.aa13536c.js",
-    "static/js/2.3c611381.chunk.js",
+    "static/js/2.5844aa7b.chunk.js",
     "static/css/main.5f6a2662.chunk.css",
-    "static/js/main.6b45623a.chunk.js"
+    "static/js/main.c3ef777b.chunk.js"
   ]
 }
