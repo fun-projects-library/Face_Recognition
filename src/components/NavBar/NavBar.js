@@ -6,7 +6,7 @@ export default class NavBar extends Component {
     constructor(props){
         super(props);
         this.state = {
-            loggedIn: false,
+            loggedIn: true,
             password: "",
             warning: false
         }
@@ -50,7 +50,7 @@ export default class NavBar extends Component {
 
 
                     <div id="loginDiv">
-                        <input type="password" placeholder="Enter your password!" id="loginInput" onChange={this.handleChange} value={this.state.password} onKeyUp={(e)=> {return e.key === "Enter" && this.state.loggedIn === false ? this.LoginFunc() : ""}}></input>    
+                        <input type="password" placeholder="Already entered for testing!" id="loginInput" onChange={this.handleChange} value={this.state.password} onKeyUp={(e)=> {return e.key === "Enter" && this.state.loggedIn === false ? this.LoginFunc() : ""}}></input>    
                         <button type="button" id="loginBtn" onClick={this.LoginFunc}>{this.state.loggedIn ? "Logout" : "Login"}</button>
                     </div>
                     
